@@ -6,7 +6,7 @@
 /*   By: asebaai <asebaai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:28:39 by asebaai           #+#    #+#             */
-/*   Updated: 2024/03/18 03:30:47 by asebaai          ###   ########.fr       */
+/*   Updated: 2024/03/22 20:02:23 by asebaai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,6 @@ char	*ft_strdup(const char *s)
 	}
 	str[i] = 0;
 	return (str);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
 }
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)

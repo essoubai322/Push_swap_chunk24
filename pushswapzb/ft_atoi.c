@@ -6,13 +6,13 @@
 /*   By: asebaai <asebaai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 03:52:14 by asebaai           #+#    #+#             */
-/*   Updated: 2024/03/22 14:44:31 by asebaai          ###   ########.fr       */
+/*   Updated: 2024/03/22 20:05:29 by asebaai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strlen(char *s)
+size_t	ft_strlen(const char *s)
 {
 	int	i;
 

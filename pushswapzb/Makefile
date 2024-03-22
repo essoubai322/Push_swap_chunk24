@@ -1,32 +1,32 @@
 NAME = push_swap
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-RM = rm -rf
-AR = ar -rcs
+#Name2 = checker
+CC = cc 
+CFLAGS = -fsanitize=address -Wall -Wextra -Werror
+SOURCE = argv_to_pointer.c ft_atoi.c check_error.c ft_calloc.c ft_lst.c ft_split.c \
+			push_swap.c push_r_s.c push_tools.c push_r_s2.c sort3_4_5.c
+#SOURCEB = 	./bonus/check_sorted_bonus.c ./bonus/free_bonus.c ./bonus/checker_bonus.c ./bonus/check_arg_bonus.c ./bonus/ft_tools_bonus.c ./bonus/ft_tools2_bonus.c ./bonus/moves_push_bonus.c\
+			./bonus/moves_reverse_bonus.c ./bonus/moves_rotate_bonus.c ./bonus/reverse_and_rotate_bonus.c ./bonus/moves_swap_bonus.c\
+			./bonus/get_next_line/get_next_line.c ./bonus/get_next_line/get_next_line_utils.c ./bonus/ft_split2_bonus.c
+OBJ = ${SOURCE:.c=.o}
+#BOBJ = ${SOURCEB:.c=.o}
 
-SRCS = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
-		ft_lstlast_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
-		push_swap.c
-#SRCSB = ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
-	ft_lstsize_bonus.c ft_lstlast_bonus.c \
-	ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-	ft_lstclear_bonus.c ft_lstiter_bonus.c \
-	ft_lstmap_bonus.c
-OBJS1 = $(SRCS:.c=.o)
-#OBJS2 = $(SRCSB:.c=.o)
+all: ${NAME}
 
-all : $(NAME)
-$(NAME) : $(OBJS1)
-$(OBJS1) : $(SRCS)
-	$(CC) $(CFLAGS) -c $(SRCS)
-	$(AR) $(NAME) $(OBJS1)
-#bonus : $(OBJS2)
-#$(OBJS2) : $(SRCSB)
-#	$(CC) $(CFLAGS) -c $(SRCSB)
-#	$(AR) $(NAME) $(OBJS2)
-clean :
-	$(RM) $(OBJS1)
-fclean : clean
-	$(RM) $(NAME)
-re : fclean all
-.PHONY : all bonus clean fclean re
+.c.o:
+	${CC} ${CFLAGS} -c $< -o $@
+
+${NAME}: ${OBJ}
+		${CC} ${CFLAGS} ${OBJ} -o ${NAME}
+
+#bonus: ${Name2}
+
+#${Name2}: ${BOBJ}
+#		${CC} ${CFLAGS} ${BOBJ} -o ${Name2}
+
+clean:
+	rm -rf ${OBJ} 
+
+fclean: clean
+	rm -rf ${NAME}
+
+re: fclean all 

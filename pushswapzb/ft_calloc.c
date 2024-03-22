@@ -6,7 +6,7 @@
 /*   By: asebaai <asebaai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 09:33:36 by asebaai           #+#    #+#             */
-/*   Updated: 2024/03/18 03:40:06 by asebaai          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:43:01 by asebaai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,23 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(ptr, 1);
 	return (ptr);
 }
-/*int main()
+
+void	free_lst(t_push **stack)
 {
-	void *p;
-	void *c;
-	p = ft_calloc( 4294967295, 2);
-	c = calloc(4294967295,2);
-	printf("dyali : %s || %p\n", (char *)p, p);
-	printf("dyalo : %s || %p", (char *)c, c);
-}*/
+	t_push	*tmp;
+
+	tmp = (*stack);
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free((*stack));
+		(*stack) = tmp;
+	}
+}
+
+void	ss(t_push **a, t_push **b)
+{
+	sa(a);
+	sb(b);
+	write(1, "ss\n", 3);
+}

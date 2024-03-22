@@ -6,11 +6,21 @@
 /*   By: asebaai <asebaai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 03:52:14 by asebaai           #+#    #+#             */
-/*   Updated: 2024/03/18 06:44:18 by asebaai          ###   ########.fr       */
+/*   Updated: 2024/03/22 14:44:31 by asebaai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_strlen(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 long	ft_atoi(const char *str)
 {

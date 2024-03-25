@@ -6,7 +6,7 @@
 /*   By: asebaai <asebaai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 03:52:14 by asebaai           #+#    #+#             */
-/*   Updated: 2024/03/22 20:05:29 by asebaai          ###   ########.fr       */
+/*   Updated: 2024/03/23 00:53:23 by asebaai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ size_t	ft_strlen(const char *s)
 	while (s[i])
 		i++;
 	return (i);
+}
+
+char	*ft_strcpy(char *dest, char *src)
+{
+	int	i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
 
 long	ft_atoi(const char *str)
@@ -42,6 +56,8 @@ long	ft_atoi(const char *str)
 	while (str[i] >= 48 && str[i] <= 57)
 	{
 		result = result * 10 + (str[i] - 48);
+		if (result * sign > 2147483647 || result * sign < -2147483648)
+			error_print();
 		i++;
 	}
 	return (result * sign);

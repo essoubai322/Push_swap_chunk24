@@ -6,7 +6,7 @@
 /*   By: asebaai <asebaai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 03:27:41 by asebaai           #+#    #+#             */
-/*   Updated: 2024/03/22 14:46:39 by asebaai          ###   ########.fr       */
+/*   Updated: 2024/03/23 00:57:43 by asebaai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ char	*av_to_pointer(int ac, char *av[])
 	offset = 0;
 	while (i < ac)
 	{
-		strcpy(&result[offset], av[i]);
-		offset += strlen(av[i]);
+		ft_strcpy(&result[offset], av[i]);
+		offset += ft_strlen(av[i]);
 		result[offset++] = ' ';
 		i++;
 	}
@@ -91,7 +91,6 @@ void	check_repete(char **str)
 		tab[j] = ft_atoi(str[j]);
 		j++;
 	}
-	check_max(tab, d);
 	j = 0;
 	check_repete1(tab, i, j, d);
 	free(tab);

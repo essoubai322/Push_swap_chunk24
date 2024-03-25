@@ -6,7 +6,7 @@
 /*   By: asebaai <asebaai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:23:54 by asebaai           #+#    #+#             */
-/*   Updated: 2024/03/22 20:03:42 by asebaai          ###   ########.fr       */
+/*   Updated: 2024/03/25 23:03:59 by asebaai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
 typedef struct s_push
@@ -88,7 +87,8 @@ void				sort3(t_push **a, t_push **b, int min);
 int					min_indx(t_push *a);
 void				is_valid(t_push **a, t_push **b, char *line);
 void				read_instructions(t_push **a, t_push **b);
-char				*ft_strnstr(const char *big, const char *little,
-						size_t len);
+char				*ft_strnstr(const char *str, const char *to_find,
+						size_t range);
+char				*ft_strcpy(char *dest, char *src);
 
 #endif

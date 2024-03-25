@@ -6,33 +6,31 @@
 /*   By: asebaai <asebaai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:56:26 by asebaai           #+#    #+#             */
-/*   Updated: 2024/03/22 20:51:06 by asebaai          ###   ########.fr       */
+/*   Updated: 2024/03/25 23:05:13 by asebaai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *str, const char *to_find, size_t range)
 {
 	size_t	i;
-	size_t	j;
+	size_t	check;
+	size_t	to_find_lenght;
 
 	i = 0;
-	j = 0;
-	if (!little || *little == 0)
-		return ((char *)big);
-	while (big[i] && (len > 0))
+	if (!str && !range)
+		return (NULL);
+	if (!*to_find)
+		return ((char *)str);
+	to_find_lenght = ft_strlen(to_find);
+	while (str[i] && to_find_lenght <= range - i)
 	{
-		j = 0;
-		while (big[i + j] == little[j])
-		{
-			if (little[j + 1] == '\0')
-				return ((char *)big + i);
-			if (len - 1 == 0)
-				return (NULL);
-			j++;
-		}
-		len--;
+		check = 0;
+		while (str[i + check] == to_find[check] && to_find[check])
+			check++;
+		if (to_find[check] == '\0')
+			return ((char *)str + i);
 		i++;
 	}
 	return (NULL);
@@ -40,14 +38,13 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 void	is_valid(t_push **a, t_push **b, char *line)
 {
-	printf("iwa\n");
 	if (ft_strnstr(line, "sa\n", 3))
 		sa(a);
 	else if (ft_strnstr(line, "pa\n", 3))
 		pa(a, b);
 	else if (ft_strnstr(line, "pb\n", 3))
 		pb(a, b);
-	else if (ft_strnstr(line, "pb\n", 3))
+	else if (ft_strnstr(line, "sb\n", 3))
 		sb(b);
 	else if (ft_strnstr(line, "ra\n", 3))
 		ra(a);
@@ -71,6 +68,7 @@ void	read_instructions(t_push **a, t_push **b)
 {
 	char	*line;
 
+	sort_indx(a);
 	while (1)
 	{
 		line = get_next_line(0);
@@ -112,7 +110,7 @@ int	main(int ac, char **av)
 	check_repete(strs);
 	while (strs[i])
 		head_a = stack_to_a(head_a, atoi(strs[i++]));
-	read_instructions(&head_a, &head_a);
+	read_instructions(&head_a, &head_b);
 	i = 0;
 	free(s);
 	while (strs[i])
